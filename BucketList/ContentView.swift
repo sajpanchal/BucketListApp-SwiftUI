@@ -19,7 +19,7 @@ struct ContentView: View {
     let users = [
         User(firstName: "Arnold", lastName: "Rimmer"),
         User(firstName: "Kristine", lastName: "Kochanski"),
-        User(firstName: "David", lastName: "Lister")
+        User(firstName: "Dravid", lastName: "Lister")
     ].sorted()
     var body: some View {
         Text("Hello World")
