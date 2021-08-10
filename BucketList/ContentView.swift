@@ -22,9 +22,25 @@ struct ContentView: View {
         User(firstName: "David", lastName: "Lister")
     ].sorted()
     var body: some View {
-        List(users) { user in
-            Text("\(user.firstName)  \(user.lastName)")
-        }
+        Text("Hello World")
+            .onTapGesture {
+                let str = "Test Message"
+                let url = self.getDocumentsDirectory().appendingPathComponent("message.rtf")
+                do {
+                    try str.write(to: url, atomically: true, encoding: .utf8)
+                    let input = try String(contentsOf: url)
+                    print(input)
+                }
+                catch {
+                    print(error.localizedDescription)
+                }
+            }
+    }
+    func getDocumentsDirectory() -> URL {
+        // locate all documents directories for this computer user.
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        // just send back the first directory.
+        return paths[0]
     }
 }
 
