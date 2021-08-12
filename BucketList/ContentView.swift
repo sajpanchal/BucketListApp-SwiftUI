@@ -22,7 +22,7 @@ struct ContentView: View {
         User(firstName: "Dravid", lastName: "Lister")
     ].sorted()
     var body: some View {
-        Text("Hello World")
+        /*Text("Hello World")
             .onTapGesture {
                 let str = "Test Message"
                 let url = self.getDocumentsDirectory().appendingPathComponent("message.rtf")
@@ -34,7 +34,9 @@ struct ContentView: View {
                 catch {
                     print(error.localizedDescription)
                 }
-            }
+            }*/
+        MapView()
+            .edgesIgnoringSafeArea(.all)
     }
     func getDocumentsDirectory() -> URL {
         // locate all documents directories for this computer user.
