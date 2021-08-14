@@ -20,6 +20,9 @@ struct User: Identifiable, Comparable {
 struct ContentView: View {
     @State private var centerCoordinate = CLLocationCoordinate2D()
     @State var locations = [MKPointAnnotation]()
+    @State var selectedPlace: MKPointAnnotation?
+    @State var showingPlaceDetails = false
+    
     let users = [
         User(firstName: "Arnold", lastName: "Rimmer"),
         User(firstName: "Kristine", lastName: "Kochanski"),
@@ -28,7 +31,7 @@ struct ContentView: View {
     var body: some View {
        
         ZStack {
-            MapView(centerCoordinate: $centerCoordinate, annotations: locations)
+            MapView(centerCoordinate: $centerCoordinate, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
                 .edgesIgnoringSafeArea(.all)
             Circle()
                 .fill(Color.blue)
@@ -41,6 +44,7 @@ struct ContentView: View {
                     Button(action: {
                         let newLocation = MKPointAnnotation()
                         newLocation.coordinate = self.centerCoordinate
+                        newLocation.title = "Example location"
                         self.locations.append(newLocation)
                     }) {
                         Image(systemName: "plus")
@@ -54,6 +58,11 @@ struct ContentView: View {
                 }
             }
         }
+        .alert(isPresented: $showingPlaceDetails, content: {
+            Alert(title: Text(selectedPlace?.title ?? "Unknown"), message: Text(selectedPlace?.subtitle ?? "Missing place information"), primaryButton: .default(Text("OK")), secondaryButton: .default(Text("Edit")) {
+                //edit this place
+            })
+        })
     }
     func getDocumentsDirectory() -> URL {
         // locate all documents directories for this computer user.
