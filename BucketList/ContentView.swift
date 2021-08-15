@@ -19,7 +19,7 @@ struct User: Identifiable, Comparable {
 }
 struct ContentView: View {
     @State private var centerCoordinate = CLLocationCoordinate2D()
-    @State var locations = [MKPointAnnotation]()
+    @State var locations = [CodableMKPointAnnotation]()
     @State var selectedPlace: MKPointAnnotation?
     @State var showingPlaceDetails = false
     @State var showingEditScreen = false
@@ -43,7 +43,7 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        let newLocation = MKPointAnnotation()
+                        let newLocation = CodableMKPointAnnotation()
                         newLocation.coordinate = self.centerCoordinate
                         newLocation.title = "Example location"
                         self.locations.append(newLocation)
@@ -66,17 +66,40 @@ struct ContentView: View {
                 self.showingEditScreen = true
             })
         })
-        .sheet(isPresented: $showingEditScreen) {
+        .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
             if self.selectedPlace != nil {
                 EditView(placemark: self.selectedPlace!)
             }
         }
+        .onAppear(perform: {
+            loadData()
+        })
     }
     func getDocumentsDirectory() -> URL {
         // locate all documents directories for this computer user.
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         // just send back the first directory.
         return paths[0]
+    }
+    func loadData() {
+        let filename = getDocumentsDirectory().appendingPathComponent("SavedPlaces")
+        do {
+            let data = try Data(contentsOf: filename)
+            locations = try JSONDecoder().decode([CodableMKPointAnnotation].self, from: data)
+        }
+        catch {
+            print("Unable to load saved data.")
+        }
+    }
+    func saveData() {
+        do {
+            let filename = getDocumentsDirectory().appendingPathComponent("SavedPlaces")
+            let data = try JSONEncoder().encode(self.locations)
+            try data.write(to: filename,options:[.atomicWrite, .completeFileProtection])
+        }
+        catch {
+            print("UNable to save data.")
+        }
     }
     /*func authenicate() {
         let context = LAContext()
