@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		723ADFAE26C88EE900A64DE8 /* MKPointAnnotation-ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ADFAD26C88EE900A64DE8 /* MKPointAnnotation-ObservableObject.swift */; };
+		723ADFB026C8908600A64DE8 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ADFAF26C8908600A64DE8 /* EditView.swift */; };
 		727979C426C2C64200DEBDE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727979C326C2C64200DEBDE6 /* AppDelegate.swift */; };
 		727979C626C2C64200DEBDE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727979C526C2C64200DEBDE6 /* SceneDelegate.swift */; };
 		727979C826C2C64200DEBDE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727979C726C2C64200DEBDE6 /* ContentView.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		723ADFAD26C88EE900A64DE8 /* MKPointAnnotation-ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation-ObservableObject.swift"; sourceTree = "<group>"; };
+		723ADFAF26C8908600A64DE8 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		727979C026C2C64200DEBDE6 /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		727979C326C2C64200DEBDE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		727979C526C2C64200DEBDE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				727979C526C2C64200DEBDE6 /* SceneDelegate.swift */,
 				727979C726C2C64200DEBDE6 /* ContentView.swift */,
 				7279975326C572A9004E444F /* MapView.swift */,
+				723ADFAD26C88EE900A64DE8 /* MKPointAnnotation-ObservableObject.swift */,
+				723ADFAF26C8908600A64DE8 /* EditView.swift */,
 				727979C926C2C64500DEBDE6 /* Assets.xcassets */,
 				727979CE26C2C64500DEBDE6 /* LaunchScreen.storyboard */,
 				727979D126C2C64500DEBDE6 /* Info.plist */,
@@ -150,7 +156,9 @@
 			files = (
 				727979C426C2C64200DEBDE6 /* AppDelegate.swift in Sources */,
 				7279975426C572A9004E444F /* MapView.swift in Sources */,
+				723ADFB026C8908600A64DE8 /* EditView.swift in Sources */,
 				727979C626C2C64200DEBDE6 /* SceneDelegate.swift in Sources */,
+				723ADFAE26C88EE900A64DE8 /* MKPointAnnotation-ObservableObject.swift in Sources */,
 				727979C826C2C64200DEBDE6 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

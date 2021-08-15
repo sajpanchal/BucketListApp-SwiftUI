@@ -22,6 +22,7 @@ struct ContentView: View {
     @State var locations = [MKPointAnnotation]()
     @State var selectedPlace: MKPointAnnotation?
     @State var showingPlaceDetails = false
+    @State var showingEditScreen = false
     
     let users = [
         User(firstName: "Arnold", lastName: "Rimmer"),
@@ -46,6 +47,8 @@ struct ContentView: View {
                         newLocation.coordinate = self.centerCoordinate
                         newLocation.title = "Example location"
                         self.locations.append(newLocation)
+                        self.selectedPlace = newLocation
+                        self.showingEditScreen = true
                     }) {
                         Image(systemName: "plus")
                     }
@@ -60,9 +63,14 @@ struct ContentView: View {
         }
         .alert(isPresented: $showingPlaceDetails, content: {
             Alert(title: Text(selectedPlace?.title ?? "Unknown"), message: Text(selectedPlace?.subtitle ?? "Missing place information"), primaryButton: .default(Text("OK")), secondaryButton: .default(Text("Edit")) {
-                //edit this place
+                self.showingEditScreen = true
             })
         })
+        .sheet(isPresented: $showingEditScreen) {
+            if self.selectedPlace != nil {
+                EditView(placemark: self.selectedPlace!)
+            }
+        }
     }
     func getDocumentsDirectory() -> URL {
         // locate all documents directories for this computer user.
