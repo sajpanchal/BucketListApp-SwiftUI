@@ -7,22 +7,30 @@
 
 import SwiftUI
 import MapKit
-//
+// this is the Struct that is responsible to display the mapView of UIKit and responde to any changes happening from SwiftUI to it.
 struct MapView: UIViewRepresentable {
-
+    // stores the lat, long of the center of the mapView.
     @Binding var centerCoordinate: CLLocationCoordinate2D
+    // creates a pinned location instance having title, subtitle, lat and long.
     @Binding var selectedPlace: MKPointAnnotation?
+    // flag that decides whether to show the EditView or not.
     @Binding var showingPlaceDetails: Bool
+    
+    // list of pinned location instances.
     var annotations: [MKPointAnnotation]
     
+    // acts as a mediator between swiftUI and UIKit.
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: MapView
         init(_ parent: MapView) {
             self.parent = parent
         }
+        // when we scroll or zoom in/out the map this method gets called.
         func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+            // get the centerCoordinates and store it in parent instance prop of MapView.
             parent.centerCoordinate = mapView.centerCoordinate
         }
+        // to reuse the existing pinned location from a MapKit or create a new one when + button is clicked.
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             let identifier = "Placemark"
             
@@ -38,6 +46,7 @@ struct MapView: UIViewRepresentable {
             }
             return annotationView
         }
+        // when accesoryControl is tapped on pinned location.
         func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
             guard let placemark = view.annotation as? MKPointAnnotation else {
                 return
