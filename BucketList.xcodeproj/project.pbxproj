@@ -18,6 +18,7 @@
 		727979CD26C2C64500DEBDE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 727979CC26C2C64500DEBDE6 /* Preview Assets.xcassets */; };
 		727979D026C2C64500DEBDE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 727979CE26C2C64500DEBDE6 /* LaunchScreen.storyboard */; };
 		7279975426C572A9004E444F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279975326C572A9004E444F /* MapView.swift */; };
+		728461B126C9ED7F00E11664 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728461B026C9ED7F00E11664 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		727979CF26C2C64500DEBDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		727979D126C2C64500DEBDE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7279975326C572A9004E444F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		728461B026C9ED7F00E11664 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				727979C326C2C64200DEBDE6 /* AppDelegate.swift */,
 				727979C526C2C64200DEBDE6 /* SceneDelegate.swift */,
 				727979C726C2C64200DEBDE6 /* ContentView.swift */,
+				728461B026C9ED7F00E11664 /* HomeView.swift */,
 				7279975326C572A9004E444F /* MapView.swift */,
 				723ADFAD26C88EE900A64DE8 /* MKPointAnnotation-ObservableObject.swift */,
 				723ADFAF26C8908600A64DE8 /* EditView.swift */,
@@ -160,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				728461B126C9ED7F00E11664 /* HomeView.swift in Sources */,
 				727979C426C2C64200DEBDE6 /* AppDelegate.swift in Sources */,
 				7279975426C572A9004E444F /* MapView.swift in Sources */,
 				723ADFB026C8908600A64DE8 /* EditView.swift in Sources */,

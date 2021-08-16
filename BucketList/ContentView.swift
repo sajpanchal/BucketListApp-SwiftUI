@@ -125,12 +125,16 @@ struct ContentView: View {
                 DispatchQueue.main.async {
                     if success {
                         self.isUnlocked = true
+                        print("success")
                     }
-                    else {
-                        
+                    else if authenticationError != nil {
+                        print(authenticationError?.localizedDescription)
                     }
                 }
             }
+        }
+        else {
+            print("Failed")
         }
     }
 }
